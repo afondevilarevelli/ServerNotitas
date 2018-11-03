@@ -1,13 +1,17 @@
 package ServerNotitas.servidor;
 
+import spark.Spark;
+
 /**
  * Hello world!
  *
  */
-public class App 
+public class Server 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Spark.port(9000);
+        Router.configure();
+        Spark.init();
     }
 }
