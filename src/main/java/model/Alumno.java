@@ -3,29 +3,41 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.uqbar.commons.model.Entity;
-import org.uqbar.commons.utils.Observable;
-import org.uqbar.commons.utils.Transactional;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+import org.uqbar.commons.model.Entity;
+import org.uqbar.commons.utils.Transactional;
 import com.google.gson.annotations.SerializedName;
 
 @SuppressWarnings("serial")
 @Transactional
-@Observable
+@Table(name = "alumnos")
 public class Alumno extends Entity {
 
 	@SerializedName("first_name")
 	private String first_name;
-	@SerializedName("code")
-	private int code;
+	@SerializedName("legajo")
+	private int legajo;
 	@SerializedName("last_name")
 	private String last_name;
 	@SerializedName("github_user")
 	private String github_user;
 	@SerializedName("assignments")
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_alumno")
 	private List<Asignacion> assignments = new ArrayList<>();
 	
-	
+	public Alumno(String unNom, String ape, int leg, String userGit) {
+		this.first_name = unNom;
+		this.last_name = ape;
+		this.legajo = leg;
+		this.github_user = userGit;
+		this.assignments = getAssignments();
+	}	
 	
 	public String getFirst_name() {
 		return first_name;
@@ -39,14 +51,14 @@ public class Alumno extends Entity {
 
 
 
-	public int getCode() {
-		return code;
+	public int getLegajo() {
+		return legajo;
 	}
 
 
 
-	public void setCode(int code) {
-		this.code = code;
+	public void setLegajo(int code) {
+		this.legajo = code;
 	}
 
 
@@ -86,18 +98,9 @@ public class Alumno extends Entity {
 	}
 
 
-	
-	public Alumno(String unNom, String ape, int leg, String userGit) {
-		this.first_name = unNom;
-		this.last_name = ape;
-		this.code = leg;
-		this.github_user = userGit;
-		this.assignments = getAssignments();
-	}
-
 	public boolean mismoLegajo(int unLeg) {
 
-		return this.getCode() == unLeg;
+		return this.legajo == unLeg;
 	}
 
 }

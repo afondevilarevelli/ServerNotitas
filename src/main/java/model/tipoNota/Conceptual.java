@@ -1,45 +1,20 @@
 package model.tipoNota;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 import com.google.gson.annotations.SerializedName;
 
-
+@Entity
+@DiscriminatorValue(value = "conceptual")
 public class Conceptual  extends Nota {
-	@SerializedName("id")
-	private int id;
 	@SerializedName("value")
-	EnumConceptual value;
-	@SerializedName("created_at")
-	private String created_at;
-	@SerializedName("update_at")
-	private String update_at;
+	private EnumConceptual value;	
 	
-	
-	public int getId() {
-		return id;
+	public Conceptual(EnumConceptual not) {
+		super();
+		this.value = not;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	
-	public String getCreated_at() {
-		return created_at;
-	}
-
-	public void getCreated_at(String nombre) {
-		this.created_at = nombre;
-	}
-
-
-	public String getUpdate_at() {
-		return update_at;
-	}
-
-	public void setUpdate_at(String update_at) {
-		this.update_at = update_at;
-	}
-
 
 	public EnumConceptual getNota() {
 		return value;
@@ -49,19 +24,13 @@ public class Conceptual  extends Nota {
 		this.value = nota;
 	}
 
-	public Conceptual(EnumConceptual not) {
-	this.value = not;
+	@Override
+	public boolean estaAprobada() {
+		return value != EnumConceptual.MAL && value != EnumConceptual.REGULAR_MENOS;
 	}
 
 	@Override
-	public boolean aprobada() {
-
-		return value != EnumConceptual.MAL;
-	}
-
-	@Override
-	public String value() {
-		
+	public String value() {	
 		return value.name().toString();
 	}
 

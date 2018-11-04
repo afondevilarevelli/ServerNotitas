@@ -14,7 +14,17 @@ public class Controller {
 		this.response = res;
 	}
 	
-	public ModelAndView login() {
+	public ModelAndView getLogin() {
 		return new ModelAndView(null, "login.hbs");
 	}
+	
+	public ModelAndView postLogin() {
+		//algun redirect
+		return new ModelAndView(null, "login.hbs");
+	}
+	
+	public ModelAndView homeAlumno() {
+		return new ModelAndView(null, "login.hbs");
+	}
+	
 }

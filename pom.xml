@@ -85,11 +85,13 @@
             <version>1.7.21</version>
         </dependency>
         
-        <dependency>
-			<groupId>com.sparkjava</groupId>
-			<artifactId>spark-template-handlebars</artifactId>
-			<version>2.3</version>
+        <!-- https://mvnrepository.com/artifact/com.sparkjava/spark-template-handlebars -->
+		<dependency>
+    		<groupId>com.sparkjava</groupId>
+    		<artifactId>spark-template-handlebars</artifactId>
+    		<version>2.7.1</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>com.sparkjava</groupId>

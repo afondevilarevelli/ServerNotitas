@@ -1,63 +1,33 @@
 package model.tipoNota;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 import com.google.gson.annotations.SerializedName;
 
-
+@Entity
+@DiscriminatorValue(value = "numerica")
 public class Numerica extends Nota {
-    
 	@SerializedName("value")
-	private double value;
-	@SerializedName("id")
-	private int id;
-	@SerializedName("created_at")
-	private String created_at;
-	@SerializedName("update_at")
-	private String update_at;
+	private Double value;
 	
-	public Numerica(int i) {
+	public Numerica(Double i) {
+		super();
 		this.value = i;
 	}
-	
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	
-	public String getCreated_at() {
-		return created_at;
-	}
-
-	public void getCreated_at(String nombre) {
-		this.created_at = nombre;
-	}
-
-
-	public String getUpdate_at() {
-		return update_at;
-	}
-
-	public void setUpdate_at(String update_at) {
-		this.update_at = update_at;
-	}
-
-
-	public double getNota() {
+	public Double getNota() {
 		return value;
 	}
 
-	public void setNota(double nota) {
+	public void setNota(Double nota) {
 		this.value = nota;
 	}
 
 
 
 	@Override
-	public boolean aprobada() {
-
+	public boolean estaAprobada() {
 		return value >= 6;
 	}
 
