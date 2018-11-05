@@ -7,6 +7,13 @@
 
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        
+        <class>model.Alumno</class>
+        <class>model.Asignacion</class>
+        <class>modelo.tipoNota.Nota</class>
+        <class>modelo.tipoNota.Conceptual</class>
+        <class>modelo.tipoNota.Numerica</class>
+        <class>modelo.tipoNota.EnumConceptual</class>
 
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
