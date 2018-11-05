@@ -3,9 +3,6 @@ package model.tipoTarea;
 
 import model.tipoNota.Numerica;
 
-import org.uqbar.commons.utils.Observable;
-
-@Observable
 public class Parcial  {
 	Numerica calificacion;
 

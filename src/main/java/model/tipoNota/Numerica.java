@@ -3,12 +3,9 @@ package model.tipoNota;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-import com.google.gson.annotations.SerializedName;
-
 @Entity
 @DiscriminatorValue(value = "numerica")
 public class Numerica extends Nota {
-	@SerializedName("value")
 	private Double value;
 	
 	public Numerica(Double i) {

@@ -2,53 +2,42 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.uqbar.commons.model.Entity;
-import org.uqbar.commons.utils.Transactional;
-import com.google.gson.annotations.SerializedName;
-
-@SuppressWarnings("serial")
-@Transactional
+@Entity
 @Table(name = "alumnos")
-public class Alumno extends Entity {
-
-	@SerializedName("first_name")
-	private String first_name;
-	@SerializedName("legajo")
+public class Alumno {
 	@Id
 	private int legajo;
-	@SerializedName("last_name")
-	private String last_name;
-	@SerializedName("github_user")
+	private String nombre;
+	private String apellido;
 	private String github_user;
-	@SerializedName("assignments")
 	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_alumno")
 	private List<Asignacion> assignments = new ArrayList<>();
 	
 	public Alumno(String unNom, String ape, int leg, String userGit) {
-		this.first_name = unNom;
-		this.last_name = ape;
+		this.nombre = unNom;
+		this.apellido = ape;
 		this.legajo = leg;
 		this.github_user = userGit;
 		this.assignments = getAssignments();
 	}	
 	
-	public String getFirst_name() {
-		return first_name;
+	public String getNombre() {
+		return this.nombre;
 	}
 
 
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setNombre(String first_name) {
+		this.nombre = first_name;
 	}
 
 
@@ -65,14 +54,14 @@ public class Alumno extends Entity {
 
 
 
-	public String getLast_name() {
-		return last_name;
+	public String getApellido() {
+		return this.apellido;
 	}
 
 
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setApellido(String last_name) {
+		this.apellido = last_name;
 	}
 
 
