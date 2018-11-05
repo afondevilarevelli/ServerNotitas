@@ -2,6 +2,7 @@ package model.tipoNota;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -9,6 +10,7 @@ import com.google.gson.annotations.SerializedName;
 @DiscriminatorValue(value = "conceptual")
 public class Conceptual  extends Nota {
 	@SerializedName("value")
+	@Enumerated
 	private EnumConceptual value;	
 	
 	public Conceptual(EnumConceptual not) {

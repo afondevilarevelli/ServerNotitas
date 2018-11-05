@@ -65,12 +65,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.11</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core-->
-        <dependency>
-            <groupId>org.uqbar-project</groupId>
-            <artifactId>arena-jface</artifactId>
-            <version>3.6.1</version>
-        </dependency>
 
 		<dependency>
     		<groupId>com.sparkjava</groupId>

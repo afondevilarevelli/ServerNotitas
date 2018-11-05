@@ -1,7 +1,5 @@
 package ServerNotitas.servidor;
 
-//import setup.BooleanHelper;
-//import setup.HandlebarsTemplateEngineBuilder;
 import setup.BooleanHelper;
 import setup.HandlebarsTemplateEngineBuilder;
 import spark.Spark;

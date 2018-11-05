@@ -19,8 +19,8 @@ import com.github.jknack.handlebars.Options;
 	import com.github.jknack.handlebars.Handlebars;
 	
 	import com.github.jknack.handlebars.Template;
-	import com.github.jknack.handlebars.cache.GuavaTemplateCache;
-	import com.github.jknack.handlebars.context.FieldValueResolver;
+import com.github.jknack.handlebars.cache.GuavaTemplateCache;
+import com.github.jknack.handlebars.context.FieldValueResolver;
 	import com.github.jknack.handlebars.context.JavaBeanValueResolver;
 	import com.github.jknack.handlebars.context.MapValueResolver;
 	import com.github.jknack.handlebars.context.MethodValueResolver;

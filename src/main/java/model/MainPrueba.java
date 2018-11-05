@@ -2,12 +2,11 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import model.tipoNota.Conceptual;
 import model.tipoNota.EnumConceptual;
 import model.tipoNota.Nota;
 import model.tipoNota.Numerica;
-import servicios.Session;
+import servicios.AlumnoService;
 
 public class MainPrueba {
 
@@ -18,16 +17,11 @@ public class MainPrueba {
 		notas.add(n1);
 		notas.add(n2);
 		
-		Asignacion a1 = new Asignacion( notas,"TP diseño","hacer algo re piola");
+		Asignacion asig1 = new Asignacion( notas,"TP diseño","hacer algo re piola");
 		Alumno al = new Alumno("Antonio", "Fondevila", 1595490, "afondevilarevelli");
+		al.addAsignacion(asig1);
 		
-		Session.beginTransaction();
-		try {
-			Session.getSession().persist(a1);			
-			Session.commitTransaction();
-		}catch(Exception e) {
-			Session.rollbackTransaction();
-		}
+		AlumnoService.persistirAlumno(al);
 
 
 	}

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,6 +22,7 @@ public class Alumno extends Entity {
 	@SerializedName("first_name")
 	private String first_name;
 	@SerializedName("legajo")
+	@Id
 	private int legajo;
 	@SerializedName("last_name")
 	private String last_name;
@@ -97,6 +99,13 @@ public class Alumno extends Entity {
 		this.assignments = assignments;
 	}
 
+	public void addAsignacion(Asignacion a) {
+		this.assignments.add(a);
+	}
+	
+	public void removeAsignacion(Asignacion a) {
+		this.assignments.remove(a);
+	}
 
 	public boolean mismoLegajo(int unLeg) {
 

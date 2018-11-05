@@ -19,7 +19,7 @@ public class DeserializadorGsonNota implements JsonDeserializer<Nota> {
 	        JsonPrimitive valuePrimitive = json.getAsJsonPrimitive();
 
 	        if (valuePrimitive.isNumber()) {
-	            return new Numerica(valuePrimitive.getAsInt());
+	            return new Numerica(valuePrimitive.getAsDouble());
 	        }
 	        else if (valuePrimitive.isString()) {
 	            return new Conceptual(EnumConceptual.valueOf(valuePrimitive.getAsString()));

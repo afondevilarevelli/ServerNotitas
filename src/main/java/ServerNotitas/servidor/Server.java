@@ -2,10 +2,6 @@ package ServerNotitas.servidor;
 
 import spark.Spark;
 
-/**
- * Hello world!
- *
- */
 public class Server 
 {
     public static void main( String[] args )

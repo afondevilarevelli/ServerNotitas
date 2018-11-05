@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,6 +26,7 @@ import com.google.gson.annotations.SerializedName;
 @Table(name = "asignaciones")
 public class Asignacion {
 	@SerializedName("id")
+	@Id @GeneratedValue
 	private int id;
 	@SerializedName("title")
 	private String title;
@@ -86,7 +89,7 @@ public class Asignacion {
 	
 	public void  validarEstado() {
 		
-		 if(this.grades.get(grades.size() - 1).aprobada())
+		 if(this.grades.get(grades.size() - 1).estaAprobada())
 		 {
 		  setEstado("Aprobado");
 		 }
@@ -94,25 +97,25 @@ public class Asignacion {
 		 {
 		 setEstado("No Aprobado"); 
 		 }
-		}
+	}
 		
 		
-		public String getUltimaNota() {
-			if(this.grades.isEmpty())
-			{
+	public String getUltimaNota() {
+		if(this.grades.isEmpty())
+		{
 			throw new RuntimeException("No hay notas cargadas");
-			}
-			else
-			{
+		}
+		else
+		{
 			return  this.grades.get(grades.size() - 1).value();
-			}
 		}
+	}
 
 
-		@Override
-		public String toString() {
-			return "Asignacion [id=" + id + ", title=" + title + ", descripcion=" + descripcion + ", grades=" + grades
-					+ ", estado=" + estado + "]";
-		}
+	@Override
+	public String toString() {
+		return "Asignacion [id=" + id + ", title=" + title + ", descripcion=" + descripcion + ", grades=" + grades
+				+ ", estado=" + estado + "]";
+	}
 
 }
