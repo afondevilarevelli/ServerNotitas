@@ -9,7 +9,7 @@
   	justify-content: center;
   	align-items: center;
 	align-content: center;
-	background-image: linear-gradient(to right, white, red);
+	background-image: linear-gradient(to right, yellow, blue);
 }
 
 h1{ 
@@ -34,7 +34,7 @@ body{
   	justify-content: center;
   	align-items: center;
 	flex-direction: column;
-	background-image: linear-gradient(to right, red, white);
+	background-image: linear-gradient(to right, blue, yellow);
 }
 
 

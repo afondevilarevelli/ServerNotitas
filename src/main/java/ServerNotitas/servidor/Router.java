@@ -5,6 +5,7 @@ import setup.HandlebarsTemplateEngineBuilder;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import ServerNotitas.servidor.Controller;
+import servicios.Security;
 
 public class Router {
 	
@@ -25,5 +26,16 @@ public class Router {
 		Spark.post("/", (req, res) -> new Controller(req, res).postLogin());
 		
 		Spark.get("/home", (req, res) -> new Controller(req, res).homeAlumno(), engine);
-	}
+		/*
+		Security securityService = new Security("god");
+		Spark.before((req, res) -> {
+			try {
+				Long userId = securityService.user(req.headers("Authorization").replace("Bearer ", ""));
+				//Hacer algo con el id...
+			} catch (Exception e) {
+				Spark.halt(401, "<h1><a href='https://www.youtube.com/watch?v=0Jx8Eay5fWQ'>Hack me </a></h1><br/><br/><br/><a href='https://www.youtube.com/watch?v=PtLmEARfStE'> El aleph </a>");
+			}
+		}); */
+	} 
+
 }

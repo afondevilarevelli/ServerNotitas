@@ -1,5 +1,6 @@
 model\tipoNota\EnumConceptual.class
 model\tipoNota\Conceptual.class
+servicios\Security.class
 model\tipoTarea\TP.class
 setup\Util.class
 ServerNotitas\servidor\Server.class
@@ -8,6 +9,7 @@ setup\BooleanHelper$1.class
 ServerNotitas\servidor\Router.class
 setup\BooleanHelper.class
 servicios\AlumnoService.class
+servicios\InvalidTokenException.class
 setup\HandlebarsHelpers.class
 setup\ResponseError.class
 model\tipoTarea\Parcial.class
