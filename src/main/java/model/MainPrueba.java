@@ -2,10 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.tipoNota.Conceptual;
-import model.tipoNota.EnumConceptual;
-import model.tipoNota.Nota;
-import model.tipoNota.Numerica;
+
 import servicios.AlumnoService;
 
 public class MainPrueba {

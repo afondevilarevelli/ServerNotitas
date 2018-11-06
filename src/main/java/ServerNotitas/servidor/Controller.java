@@ -28,4 +28,15 @@ public class Controller {
 		return new ModelAndView(null, "homeAlumno.hbs");
 	}
 	
+	public ModelAndView getStudent() {
+		return new ModelAndView(null, "homeAlumno.hbs");
+	}
+	
+	public ModelAndView putStudent() {
+		return new ModelAndView(null, "homeAlumno.hbs");
+	}
+	
+	public ModelAndView getAssignments() {
+		return new ModelAndView(null, "homeAlumno.hbs");
+	}
 }

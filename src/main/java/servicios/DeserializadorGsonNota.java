@@ -1,4 +1,4 @@
-package model.tipoNota;
+package servicios;
 
 import java.lang.reflect.Type;
 
@@ -7,6 +7,11 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
+
+import model.Conceptual;
+import model.EnumConceptual;
+import model.Nota;
+import model.Numerica;
 
 public class DeserializadorGsonNota implements JsonDeserializer<Nota> {
 

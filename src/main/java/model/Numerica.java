@@ -1,4 +1,4 @@
-package model.tipoNota;
+package model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 @DiscriminatorValue(value = "numerica")
 public class Numerica extends Nota {
 	private Double value;
+	
+	public Numerica() {}
 	
 	public Numerica(Double i) {
 		super();

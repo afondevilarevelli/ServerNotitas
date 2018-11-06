@@ -26,6 +26,12 @@ public class Router {
 		Spark.post("/", (req, res) -> new Controller(req, res).postLogin());
 		
 		Spark.get("/home", (req, res) -> new Controller(req, res).homeAlumno(), engine);
+		
+		Spark.get("/student", (req, res) -> new Controller(req, res).getStudent(), engine);
+		Spark.put("/student", (req, res) -> new Controller(req, res).putStudent(), engine);
+		
+		Spark.get("/student/assignments", (req, res) -> new Controller(req, res).getAssignments(), engine);
+		
 		/*
 		Security securityService = new Security("god");
 		Spark.before((req, res) -> {

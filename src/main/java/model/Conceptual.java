@@ -1,4 +1,4 @@
-package model.tipoNota;
+package model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 public class Conceptual  extends Nota {
 	@Enumerated
 	private EnumConceptual value;	
+	
+	public Conceptual() {}
 	
 	public Conceptual(EnumConceptual not) {
 		super();

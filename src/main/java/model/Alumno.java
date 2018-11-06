@@ -23,6 +23,8 @@ public class Alumno {
 	@JoinColumn(name = "id_alumno")
 	private List<Asignacion> assignments = new ArrayList<>();
 	
+	public Alumno() {}
+	
 	public Alumno(String unNom, String ape, int leg, String userGit) {
 		this.nombre = unNom;
 		this.apellido = ape;

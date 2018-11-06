@@ -6,22 +6,22 @@
              version="2.0">
 
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<provider>org.hibernate.ejb.HibernatePersistence</provider> 
         
         <class>model.Alumno</class>
         <class>model.Asignacion</class>
-        <class>model.tipoNota.Nota</class>
-        <class>model.tipoNota.Numerica</class>
-        <class>model.tipoNota.Conceptual</class>
-        <class>model.tipoNota.EnumConceptual</class>
+        <class>model.Nota</class>
+        <class>model.Numerica</class>
+        <class>model.Conceptual</class>
+        <class>model.EnumConceptual</class>
 
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
-            <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/> -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/basenotitas?serverTimezone=UTC"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/baseNotitas?serverTimezone=UTC"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="champions1234"/> 
 

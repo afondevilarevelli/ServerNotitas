@@ -8,16 +8,16 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import model.tipoNota.Nota;
 
 @Entity
 @Table(name = "asignaciones")
 public class Asignacion {
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String title;
 	private String descripcion;
@@ -26,6 +26,8 @@ public class Asignacion {
 	private List<Nota> grades = new ArrayList<Nota>();
     private String estado;
 	
+    public Asignacion() {}
+    
 	public Asignacion(List<Nota> notas,String nombre,String description) {
 		this.title = nombre;
 		this.descripcion = description;
