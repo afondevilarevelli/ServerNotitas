@@ -19,20 +19,30 @@ public class Alumno {
 	private String nombre;
 	private String apellido;
 	private String github_user;
+	private String password;
 	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_alumno")
 	private List<Asignacion> assignments = new ArrayList<>();
 	
 	public Alumno() {}
 	
-	public Alumno(String unNom, String ape, int leg, String userGit) {
+	public Alumno(String unNom, String ape, String pass, int leg, String userGit) {
 		this.nombre = unNom;
 		this.apellido = ape;
 		this.legajo = leg;
 		this.github_user = userGit;
 		this.assignments = getAssignments();
+		this.password = pass;
 	}	
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getToken() {
 		return token;
 	}

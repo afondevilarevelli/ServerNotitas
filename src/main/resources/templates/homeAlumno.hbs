@@ -1,10 +1,67 @@
+{{#partial "contenido"}}
+<!DOCTYPE html>
 <html>
 <head>
-
+	<title>Home</title>
+    <link rel="stylesheet" href="/css/homeAlumno.css">
 </head>
 
 <body>
-	<marquee>HOLAAAA</marquee>
+	<div class="contenedorInfo">
+		<div class="contenedorPerfil">
+	<center><table class="tablaInfo" style = "margin-top:120px;" width="450px"></center>
+	<tr>
+ 		<td valign="top">
+  			<label for="first_name">Nombre </label>
+ 		</td>
+ 		<td valign="top">
+  			<input  disabled="true" type="text" name="nombre" maxlength="50" size="30">
+ 		</td>
+	</tr>
+	<tr>
+ 		<td valign="top">
+  			<label for="last_name">Apellido </label>
+ 		</td>
+ 		<td valign="top">
+  			<input  disabled="true" type="text" name="apellido" maxlength="50" size="30">
+ 		</td>
+	</tr>
+	<tr>
+ 		<td valign="top">
+  			<label for="legajo">Legajo </label>
+ 		</td>
+ 		<td valign="top">
+  			<input  disabled="true" type="text" name="legajo" maxlength="80" size="30">
+ 		</td>
+	</tr>
+	<tr>
+ 		<td valign="top">
+  			<label for="password">Password </label>
+ 		</td>
+ 		<td valign="top">
+  			<input  disabled="true" type="text" name="contrasenia" maxlength="30" size="30">
+ 		</td>
+	</tr>
+	<tr>
+ 		<td valign="top">
+  			<label for="githubUser">Usuario de github </label>
+ 		</td>
+ 		<td valign="top">
+  			<input disabled="true" type="text" name="githubUser" maxlength="30" size="30">
+ 		</td>
+	</tr>
+	<tr>
+ 		<td colspan="2" style="text-align:center">
+  			<input type="submit" value="Enviar">   <a href="http://www.tufelicidadvacacional.com.ve/email_form.php"></a>
+ 		</td>
+	</tr>
+</table>
+		</div>
+	</div>
+	
 </body>
 
 </html>
+
+{{/partial}}
+{{>layout.hbs}}

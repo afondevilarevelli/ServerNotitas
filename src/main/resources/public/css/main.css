@@ -1,28 +1,19 @@
 ul {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+padding:0;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
     background-color: #333;
 }
 
 li {
     float: left;
+    background-color: blue;
 }
-
-.menu{
-display: none;
-}
-s
-.login{
-visibility: block;
-display: block;
-}
-
-.logout{
-display: none;
-}
-
 
 .active {
 background-color: #4CAF50;
@@ -36,7 +27,27 @@ li a {
     text-decoration: none;
 }
 
+.footer{
+	color: red;	
+}
+
+p
+{
+font-family: Arial Black; 
+font-weight: bold; font-size: 30px; 
+background: #202020;
+-webkit-background-clip: text; 
+-moz-background-clip: text; 
+background-clip: text; 
+color: transparent; 
+text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+}
+
 /* Change the link color to #111 (black) on hover */
 li a:hover {
 background-color: #111;
+}
+
+body{
+	background-image: linear-gradient(to right, blue, yellow);
 }

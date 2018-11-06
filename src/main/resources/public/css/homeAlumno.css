@@ -1,0 +1,10 @@
+.tablaInfo{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	border: 3px double Cornsilk ;
+	width: 50%;
+	height: 70%;
+}

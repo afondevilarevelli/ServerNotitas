@@ -15,7 +15,7 @@ public class MainPrueba {
 		notas.add(n2);
 		
 		Asignacion asig1 = new Asignacion( notas,"TP diseño","hacer algo re piola");
-		Alumno al = new Alumno("Antonio", "Fondevila", 1595490, "afondevilarevelli");
+		Alumno al = new Alumno("Antonio", "Fondevila", "contra", 1595490, "afondevilarevelli");
 		al.addAsignacion(asig1);
 		
 		AlumnoService.persistirAlumno(al);
