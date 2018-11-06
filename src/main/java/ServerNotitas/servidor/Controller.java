@@ -1,5 +1,7 @@
 package ServerNotitas.servidor;
 
+import java.util.HashMap;
+
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -19,13 +21,28 @@ public class Controller {
 	}
 	
 	public String postLogin() {
-		//verificar el token
+		String username = request.queryParams("nombreUsuario");
+        String pass = request.queryParams("contrasenia");
+      //verificar el token 
+        
+        //Si puede entrar
+        response.cookie("nombre", "Antonio");
+        response.cookie("apellido", "Fondevila");
+        response.cookie("legajo", "1592123");
+        response.cookie("githubUser", username);
+        response.cookie("password", pass);        
 		response.redirect("/home");
 		return null;
 	}
 	
 	public ModelAndView homeAlumno() {
-		return new ModelAndView(null, "homeAlumno.hbs");
+		HashMap<String, Object> viewModel = new HashMap<>();
+		viewModel.put("nombre", request.cookie("nombre"));
+		viewModel.put("apellido", request.cookie("apellido"));
+		viewModel.put("legajo", request.cookie("legajo"));
+		viewModel.put("githubUser", request.cookie("githubUser"));
+		viewModel.put("password", request.cookie("password"));
+		return new ModelAndView(viewModel, "homeAlumno.hbs");
 	}
 	
 	public ModelAndView getStudent() {

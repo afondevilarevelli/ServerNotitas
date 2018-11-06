@@ -1,10 +1,9 @@
-.tablaInfo{
-	display:flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
+.tablaPerfil{
 	border: 3px double Cornsilk ;
 	width: 50%;
 	height: 70%;
+}
+
+th{
+	color: red;
 }
