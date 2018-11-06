@@ -18,13 +18,14 @@ public class Controller {
 		return new ModelAndView(null, "login.hbs");
 	}
 	
-	public ModelAndView postLogin() {
-		//algun redirect
-		return new ModelAndView(null, "login.hbs");
+	public String postLogin() {
+		//verificar el token
+		response.redirect("/home");
+		return null;
 	}
 	
 	public ModelAndView homeAlumno() {
-		return new ModelAndView(null, "login.hbs");
+		return new ModelAndView(null, "homeAlumno.hbs");
 	}
 	
 }

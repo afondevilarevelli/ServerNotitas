@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "alumnos")
 public class Alumno {
+	private String token;
 	@Id
 	private int legajo;
 	private String nombre;
@@ -29,6 +30,14 @@ public class Alumno {
 		this.github_user = userGit;
 		this.assignments = getAssignments();
 	}	
+	
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
 	
 	public String getNombre() {
 		return this.nombre;

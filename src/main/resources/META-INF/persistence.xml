@@ -10,17 +10,17 @@
         
         <class>model.Alumno</class>
         <class>model.Asignacion</class>
-        <class>modelo.tipoNota.Nota</class>
-        <class>modelo.tipoNota.Conceptual</class>
-        <class>modelo.tipoNota.Numerica</class>
-        <class>modelo.tipoNota.EnumConceptual</class>
+        <class>model.tipoNota.Nota</class>
+        <class>model.tipoNota.Conceptual</class>
+        <class>model.tipoNota.Numerica</class>
+        <class>model.tipoNota.EnumConceptual</class>
 
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
 
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/baseNotitas?serverTimezone=UTC"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/basenotitas?serverTimezone=UTC"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="champions1234"/> 
 

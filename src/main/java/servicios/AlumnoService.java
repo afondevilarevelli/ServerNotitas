@@ -18,4 +18,14 @@ public class AlumnoService {
 		}		
 	}
 	
+	public static void eliminar(Alumno al) {
+		try {
+			Session.beginTransaction();
+			Session.getSession().remove(al);
+			Session.commitTransaction();
+		} catch (Exception e) {
+			e.printStackTrace();
+			Session.rollbackTransaction();
+		}
+	}
 }

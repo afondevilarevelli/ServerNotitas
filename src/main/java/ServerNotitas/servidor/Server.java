@@ -6,7 +6,8 @@ public class Server
 {
     public static void main( String[] args )
     {
-        Spark.port(9000);
+        Spark.port(8080);
+        Router.load();
         Router.configure();
         Spark.init();
     }
