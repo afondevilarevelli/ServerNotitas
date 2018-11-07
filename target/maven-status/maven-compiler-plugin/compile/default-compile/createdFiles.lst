@@ -15,7 +15,6 @@ model\Conceptual.class
 setup\HandlebarsHelpers.class
 setup\ResponseError.class
 ServerNotitas\servidor\Controller.class
-model\MainPrueba.class
 model\Asignacion.class
 setup\HandlebarsTemplateEngineBuilder.class
 model\Alumno.class

@@ -15,12 +15,12 @@ public class Security {
 		this.secret = secret;
 	}
 	
-	public Long user(String token) {
+	public int user(String token) {
 		try {
 			Algorithm algorithm = Algorithm.HMAC256(secret);
 			JWTVerifier verifier = JWT.require(algorithm).build();
 			DecodedJWT jwt = verifier.verify(token);
-			return jwt.getClaim("user").asLong();
+			return jwt.getClaim("user").asInt();
 		} catch (JWTVerificationException e) {
 			throw new InvalidTokenException(e);
 		}

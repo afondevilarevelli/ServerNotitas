@@ -18,7 +18,7 @@ public class Alumno {
 	private int legajo;
 	private String nombre;
 	private String apellido;
-	private String github_user;
+	private String githubUser;
 	private String password;
 	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_alumno")
@@ -30,7 +30,7 @@ public class Alumno {
 		this.nombre = unNom;
 		this.apellido = ape;
 		this.legajo = leg;
-		this.github_user = userGit;
+		this.githubUser = userGit;
 		this.assignments = getAssignments();
 		this.password = pass;
 	}	
@@ -88,13 +88,13 @@ public class Alumno {
 
 
 	public String getGithub_user() {
-		return github_user;
+		return githubUser;
 	}
 
 
 
 	public void setGithub_user(String github_user) {
-		this.github_user = github_user;
+		this.githubUser = github_user;
 	}
 
 

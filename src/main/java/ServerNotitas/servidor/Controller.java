@@ -2,6 +2,8 @@ package ServerNotitas.servidor;
 
 import java.util.HashMap;
 
+import model.Alumno;
+import servicios.AlumnoService;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -20,19 +22,29 @@ public class Controller {
 		return new ModelAndView(null, "login.hbs");
 	}
 	
+	public ModelAndView getLoginFailed() {
+		return new ModelAndView(null, "loginFailed.hbs");
+	}
+	
 	public String postLogin() {
+		String token = request.headers("Authorization");
 		String username = request.queryParams("nombreUsuario");
         String pass = request.queryParams("contrasenia");
-      //verificar el token 
+        Alumno al = AlumnoService.obtenerAlumno(username, pass);
         
-        //Si puede entrar
-        response.cookie("nombre", "Antonio");
-        response.cookie("apellido", "Fondevila");
-        response.cookie("legajo", "1592123");
-        response.cookie("githubUser", username);
-        response.cookie("password", pass);        
-		response.redirect("/home");
+        if(token == al.getToken()) {
+        	response.cookie("nombre", al.getNombre());
+            response.cookie("apellido", al.getApellido());
+            response.cookie("legajo", String.valueOf(al.getLegajo()));
+            response.cookie("githubUser", al.getGithub_user());
+            response.cookie("password", al.getPassword());        
+    		response.redirect("/home");
+        }else {
+        	response.redirect("/loginFailed");
+        }
+  
 		return null;
+		
 	}
 	
 	public ModelAndView homeAlumno() {
