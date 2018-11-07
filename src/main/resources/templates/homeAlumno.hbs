@@ -12,48 +12,32 @@
 			<table class="tablaPerfil">
     			<tr>
      				<th>Nombre</th>
-      				<td>{{nombre}}</td>
+      				<td class="info">{{nombre}}</td>
     			</tr>
     			<tr>
       				<th>Apellido</th>
-      				<td>{{apellido}}</td>
+      				<td class="info">{{apellido}}</td>
     			</tr>
     			<tr>
       				<th>Legajo</th>
-      				<td>{{legajo}}</td>
+      				<td class="info">{{legajo}}</td>
     			</tr>
     			<tr>
       				<th>Usuario de github</th>
-      				<td>{{githubUser}}</td>
+      				<td class="info">{{githubUser}}</td>
     			</tr>
     			<tr>
       				<th>Password</th>
-      				<td>{{password}}</td>
+      				<td class="info">{{password}}</td>
     			</tr>
 			</table>
-			<button type="button" class="btn btn-secondary btn-lg">Editar</button>
-		</div>
-		<div class="contenedorAsignaciones">
-			<table class="table table-dark">
-				<thead>
-    				<tr>
-    				<tr>
-      					<th scope="col">Asignatura</th>
-      					<th scope="col">Descripcion</th>
-      					<th scope="col">Estado</th>
-    				</tr>
-  				</thead>
-  				<tbody>		
-					{{#each asignaciones}}
-					<tr class="asignacion">
-      					<th scope="row" class="colIzquierda">{{title}}</th>
-      					<td>{{descripcion}}</td>
-      					<td>{{estado}}</td>
-    				</tr>
-					{{/each}}
-  				</tbody>
-			</table>
-		</div>
+			<form method="get">
+				<button formaction="/student/edit" type="submit" class="btn btn-secondary btn-lg">Editar</button>
+			</form>
+			<form method="get">
+				<button formaction="/student/assignments" type="submit" class="btn btn-secondary btn-lg">Ver asignaciones</button>
+			</form>
+		</div>	
 	</div>
 	
 </body>

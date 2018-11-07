@@ -7,7 +7,32 @@
 </head>
 
 <body>
-<!-- Acá algun form que envie los datos -->
+		<form method="post" action="/student">
+			<table class="tablaPerfil">
+    			<tr>
+     				<th>Nombre</th>
+      				<input class="form-control" placeholder="Nombre" name="nombre">
+    			</tr>
+    			<tr>
+      				<th>Apellido</th>
+      				<input class="form-control" placeholder="Apellido" name="apellido">
+    			</tr>
+    			<tr>
+      				<th>Legajo</th>
+      				<input class="form-control" placeholder="Legajo" name="legajo">
+    			</tr>
+    			<tr>
+      				<th>Usuario de github</th>
+      				<input class="form-control" placeholder="Usuario de github" name="githubUser">
+    			</tr>
+    			<tr>
+      				<th>Password</th>
+      				<input class="form-control" placeholder="Password" name="password">
+    			</tr>
+			</table>
+			<button class="btn btn-success btn-block btn-flat" name="button">Aceptar</button>
+		</form>
+
 </body>
 
 </html>

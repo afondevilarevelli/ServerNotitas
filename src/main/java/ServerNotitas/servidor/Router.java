@@ -54,17 +54,17 @@ public class Router {
 	            .build(); 
 		
 		Spark.staticFileLocation("/public");
-		
+		/*
 		Spark.get("/", (req, res) -> new Controller(req, res).getLogin(), engine);
 		Spark.post("/", (req, res) -> new Controller(req, res).postLogin());
-		Spark.get("/loginFailed", (req, res) -> new Controller(req, res).getLoginFailed(), engine);
+		Spark.get("/loginFailed", (req, res) -> new Controller(req, res).getLoginFailed(), engine); */
 		
-		Spark.get("/home", (req, res) -> new Controller(req, res).homeAlumno(), engine);
-		
-		Spark.get("/student", (req, res) -> new Controller(req, res).getStudent(), engine);
+		Spark.get("/student", (req, res) -> new Controller(req, res).getStudent());
 		Spark.put("/student", (req, res) -> new Controller(req, res).putStudent());
-		
 		Spark.get("/student/assignments", (req, res) -> new Controller(req, res).getAssignments());
+		
+		//Spark.get("/student/edit", (req, res) -> new Controller(req, res).getEditable(), engine);
+		
 		
 		/*
 		Security securityService = new Security("god");

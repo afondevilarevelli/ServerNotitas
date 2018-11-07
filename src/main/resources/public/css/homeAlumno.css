@@ -8,10 +8,18 @@ th{
 	color: red;
 }
 
+th, td{
+	border-bottom: 1px solid #ddd;
+}
+
 .contenedorInfo{
 	display: flex;
   	justify-content: center;
   	align-items: center;
 	align-content: center;
 	
+}
+
+.info{
+	font-weight: bold;
 }

@@ -1,12 +1,11 @@
 package ServerNotitas.servidor;
 
-import java.util.HashMap;
-
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import com.google.gson.Gson;
-
 import model.Alumno;
 import servicios.AlumnoService;
-import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
@@ -19,7 +18,7 @@ public class Controller {
 		this.request = req;
 		this.response = res;
 	}
-	
+	/*
 	public ModelAndView getLogin() {
 		return new ModelAndView(null, "login.hbs");
 	}
@@ -41,47 +40,70 @@ public class Controller {
             response.cookie("githubUser", al.getGithub_user());
             response.cookie("password", al.getPassword());   
             response.cookie("token", token);
-    		response.redirect("/home");
+    		response.redirect("/student");
         }else {
+        	response.status(401);
         	response.redirect("/loginFailed");
         }
   
 		return null;
 		
-	}
+	} */
 	
-	public ModelAndView homeAlumno() {
-		HashMap<String, Object> viewModel = new HashMap<>();
-		Alumno al = AlumnoService.obtenerAlumnoPorToken(request.cookie("token"));
-		
-		viewModel.put("nombre", request.cookie("nombre"));
-		viewModel.put("apellido", request.cookie("apellido"));
-		viewModel.put("legajo", request.cookie("legajo"));
-		viewModel.put("githubUser", request.cookie("githubUser"));
-		viewModel.put("password", request.cookie("password"));
-		viewModel.put("asignaciones", al.getAssignments());
-		return new ModelAndView(viewModel, "homeAlumno.hbs");
-	}
-	
-	public ModelAndView getStudent() {
-		return new ModelAndView(null, "editStudent.hbs");
-	}
-	
-	public String putStudent() {
+	public String getStudent() {
 		String token = request.headers("Authorization");
-		String username = request.queryParams("nombreUsuario");
-        String pass = request.queryParams("contrasenia");
-        Alumno al = AlumnoService.obtenerAlumno(username, pass);
+		Alumno al = AlumnoService.obtenerAlumnoPorToken(token);
+
+		if(al != null && token == al.getToken()) {
+			Gson gson = new Gson();
+			String jsonInString = gson.toJson(al);
+			response.status(200);
+			return jsonInString;
+		}
+		else {
+			response.status(401);
+			return null;
+		}
+	}
+	
+	/*public ModelAndView getEditable() {
+		return new ModelAndView(null, "editStudent.hbs");
+	}*/
+	
+	public String putStudent() throws ParseException {
+		String token = request.headers("Authorization");
+        Alumno al = AlumnoService.obtenerAlumnoPorToken(token);
         
-        if(token == al.getToken()) {
-        	//actualizar valores del alumno
-        	response.cookie("nombre", al.getNombre());
-            response.cookie("apellido", al.getApellido());
-            response.cookie("legajo", String.valueOf(al.getLegajo()));
-            response.cookie("githubUser", al.getGithub_user());
-            response.cookie("password", al.getPassword());   
-            response.cookie("token", token);
-    		response.redirect("/home");	
+        if(al != null && token == al.getToken()) {
+        	try {
+        		JSONParser jsonParser = new JSONParser();
+        		JSONObject jsonObject = (JSONObject) jsonParser.parse(request.body());
+        		
+        		String nombre = (String) jsonObject.get("first_name");
+        		String apellido = (String) jsonObject.get("last_name");
+        		String githubUser = (String) jsonObject.get("github_user");
+        		String legajo = (String) jsonObject.get("code");
+        		
+        		if(nombre != null) {
+        			al.setNombre(nombre);
+        		}
+        		if(apellido != null) {
+        			al.setApellido(apellido);
+        		}
+        		if(githubUser != null) {
+        			al.setGithub_user(githubUser);
+        		}
+        		if(legajo != null) {
+        			int legajoInt = Double.valueOf(legajo).intValue();
+        			al.setLegajo(legajoInt);
+        		}
+            	
+        		AlumnoService.persistirAlumno(al);
+            	response.status(201);
+        	}catch(ParseException  e) {
+        		response.status(400);
+        	}
+  
         }
         else {
         	response.status(401);      	
@@ -91,18 +113,17 @@ public class Controller {
 	
 	public String getAssignments() {
 		String token = request.headers("Authorization");
-		String username = request.queryParams("nombreUsuario");
-        String pass = request.queryParams("contrasenia");
-        Alumno al = AlumnoService.obtenerAlumno(username, pass);
+        Alumno al = AlumnoService.obtenerAlumnoPorToken(token);
         
-        if(token == al.getToken()) {
-        	Gson gson = new Gson();
-        	String jsonInString = gson.toJson(al);
-        	return jsonInString;
-        }	
+        if(al != null && token == al.getToken()) {
+        	Gson gson = new Gson(); 
+    		String jsonAsignaciones = gson.toJson(al.getAssignments());
+    		response.status(200);
+    		return jsonAsignaciones;
+        }
         else {
         	response.status(401);
         	return null;
-        }
+        }    
 	}
 }
