@@ -31,6 +31,7 @@ public class Router {
 		notas.add(n2);
 		
 		Asignacion asig1 = new Asignacion( notas,"TP algoritmos","hacer algo re piola");
+		asig1.validarEstado();
 		Alumno al = new Alumno("Antonio", "Fondevila", "contra", 1595490, "afondevilarevelli");
 		al.addAsignacion(asig1);
 		
@@ -61,9 +62,9 @@ public class Router {
 		Spark.get("/home", (req, res) -> new Controller(req, res).homeAlumno(), engine);
 		
 		Spark.get("/student", (req, res) -> new Controller(req, res).getStudent(), engine);
-		Spark.put("/student", (req, res) -> new Controller(req, res).putStudent(), engine);
+		Spark.put("/student", (req, res) -> new Controller(req, res).putStudent());
 		
-		Spark.get("/student/assignments", (req, res) -> new Controller(req, res).getAssignments(), engine);
+		Spark.get("/student/assignments", (req, res) -> new Controller(req, res).getAssignments());
 		
 		/*
 		Security securityService = new Security("god");
