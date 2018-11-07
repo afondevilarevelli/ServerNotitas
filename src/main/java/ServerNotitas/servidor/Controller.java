@@ -18,37 +18,6 @@ public class Controller {
 		this.request = req;
 		this.response = res;
 	}
-	/*
-	public ModelAndView getLogin() {
-		return new ModelAndView(null, "login.hbs");
-	}
-	
-	public ModelAndView getLoginFailed() {
-		return new ModelAndView(null, "loginFailed.hbs");
-	}
-	
-	public String postLogin() {
-		String token = request.headers("Authorization");
-		String username = request.queryParams("nombreUsuario");
-        String pass = request.queryParams("contrasenia");
-        Alumno al = AlumnoService.obtenerAlumno(username, pass);
-        
-        if(token == al.getToken()) {
-        	response.cookie("nombre", al.getNombre());
-            response.cookie("apellido", al.getApellido());
-            response.cookie("legajo", String.valueOf(al.getLegajo()));
-            response.cookie("githubUser", al.getGithub_user());
-            response.cookie("password", al.getPassword());   
-            response.cookie("token", token);
-    		response.redirect("/student");
-        }else {
-        	response.status(401);
-        	response.redirect("/loginFailed");
-        }
-  
-		return null;
-		
-	} */
 	
 	public String getStudent() {
 		String token = request.headers("Authorization");
@@ -65,10 +34,6 @@ public class Controller {
 			return null;
 		}
 	}
-	
-	/*public ModelAndView getEditable() {
-		return new ModelAndView(null, "editStudent.hbs");
-	}*/
 	
 	public String putStudent() throws ParseException {
 		String token = request.headers("Authorization");

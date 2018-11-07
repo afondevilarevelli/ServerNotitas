@@ -4,13 +4,10 @@ import setup.BooleanHelper;
 import setup.HandlebarsTemplateEngineBuilder;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-
 import ServerNotitas.servidor.Controller;
 import model.Alumno;
 import model.Asignacion;
@@ -19,7 +16,6 @@ import model.EnumConceptual;
 import model.Nota;
 import model.Numerica;
 import servicios.AlumnoService;
-import servicios.Security;
 
 public class Router {
 	
@@ -46,25 +42,10 @@ public class Router {
 		
 	}
 	
-	public static void configure() {
-		HandlebarsTemplateEngine engine = HandlebarsTemplateEngineBuilder
-	            .create()
-	            .withDefaultHelpers()
-	            .withHelper("isTrue", BooleanHelper.isTrue)
-	            .build(); 
-		
-		Spark.staticFileLocation("/public");
-		/*
-		Spark.get("/", (req, res) -> new Controller(req, res).getLogin(), engine);
-		Spark.post("/", (req, res) -> new Controller(req, res).postLogin());
-		Spark.get("/loginFailed", (req, res) -> new Controller(req, res).getLoginFailed(), engine); */
-		
+	public static void configure() {			
 		Spark.get("/student", (req, res) -> new Controller(req, res).getStudent());
 		Spark.put("/student", (req, res) -> new Controller(req, res).putStudent());
-		Spark.get("/student/assignments", (req, res) -> new Controller(req, res).getAssignments());
-		
-		//Spark.get("/student/edit", (req, res) -> new Controller(req, res).getEditable(), engine);
-		
+		Spark.get("/student/assignments", (req, res) -> new Controller(req, res).getAssignments());		
 		
 		/*
 		Security securityService = new Security("god");
